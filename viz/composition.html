@@ -1,0 +1,70 @@
+<!-- HyperFrames composition: beat-synced visualizer for a Tabasco ACE-Step demo.
+     Authored on chouta-surface; rendered on workerPC via `npx hyperframes render`.
+     Codex: adapt to the framework's actual scaffold if the attribute/timeline contract
+     differs from this starter (read the `npx hyperframes init` example), but keep the design.
+     Set BPM + title + audio src per track. Default = Human Fly (117 BPM). -->
+<div id="stage" data-composition-id="tabasco" data-start="0" data-duration="30"
+     data-width="1280" data-height="720" data-fps="30">
+  <style>
+    #stage{position:relative;width:1280px;height:720px;background:radial-gradient(circle at 50% 45%,#0a1622 0%,#05080d 70%,#000 100%);overflow:hidden;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+    #mandala{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);transform-origin:50% 50%}
+    #mandala circle, #mandala line{stroke:rgba(125,235,240,.55);fill:none}
+    #glow{position:absolute;left:50%;top:46%;width:520px;height:520px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(80,200,220,.22),transparent 60%);filter:blur(8px)}
+    #title{position:absolute;left:0;right:0;bottom:96px;text-align:center;color:#eaf6ff;font-size:64px;font-weight:700;letter-spacing:.14em}
+    #subtitle{position:absolute;left:0;right:0;bottom:64px;text-align:center;color:rgba(170,210,230,.85);font-size:20px;letter-spacing:.22em;text-transform:uppercase}
+  </style>
+
+  <div id="glow"></div>
+  <svg id="mandala" width="560" height="560" viewBox="-280 -280 560 560" xmlns="http://www.w3.org/2000/svg">
+    <circle r="60" stroke-width="2"></circle>
+    <circle r="120" stroke-width="1.5" stroke="rgba(125,235,240,.4)"></circle>
+    <circle r="190" stroke-width="1.2" stroke="rgba(120,180,240,.32)"></circle>
+    <circle r="255" stroke-width="1" stroke="rgba(150,160,240,.22)"></circle>
+    <g id="spokes"></g>
+  </svg>
+
+  <div id="title">TABASCO</div>
+  <div id="subtitle">Human Fly · ACE-Step demo</div>
+
+  <audio data-start="0" data-duration="30" data-track-index="0" data-volume="1" src="audio.wav"></audio>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script>
+    // --- per-track params ---
+    const BPM = 117, DUR = 30;          // Human Fly = 117 bpm; 30s once-through
+    const TITLE = "Human Fly";           // shown in #subtitle prefix
+
+    // build radial spokes
+    const spokes = document.getElementById("spokes");
+    for (let i = 0; i < 24; i++) {
+      const a = (i / 24) * Math.PI * 2, x = Math.cos(a) * 255, y = Math.sin(a) * 255;
+      const ln = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      ln.setAttribute("x1", 0); ln.setAttribute("y1", 0);
+      ln.setAttribute("x2", x.toFixed(1)); ln.setAttribute("y2", y.toFixed(1));
+      ln.setAttribute("stroke", "rgba(125,235,240," + (0.10 + (i % 2) * 0.08) + ")");
+      ln.setAttribute("stroke-width", "1");
+      spokes.appendChild(ln);
+    }
+
+    const beat = 60 / BPM, beats = Math.floor(DUR / beat);
+    const tl = gsap.timeline({ paused: true });
+
+    // beat pulse: snap up then ease back, every beat
+    for (let i = 0; i < beats; i++) {
+      const t = i * beat;
+      tl.to("#mandala", { scale: 1.075, duration: beat * 0.26, ease: "power2.out" }, t)
+        .to("#mandala", { scale: 1.0, duration: beat * 0.74, ease: "power1.inOut" }, t + beat * 0.26);
+      tl.to("#glow", { opacity: 1, duration: beat * 0.20, ease: "power2.out" }, t)
+        .to("#glow", { opacity: 0.45, duration: beat * 0.80, ease: "power1.in" }, t + beat * 0.20);
+    }
+    // slow continuous rotation + hue drift across the whole clip
+    tl.to("#mandala", { rotation: 150, duration: DUR, ease: "none" }, 0);
+    tl.fromTo("#stage", { filter: "hue-rotate(0deg)" }, { filter: "hue-rotate(40deg)", duration: DUR, ease: "sine.inOut" }, 0);
+    // title/subtitle intro
+    tl.fromTo("#title", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: 1.1, ease: "power2.out" }, 0.4);
+    tl.fromTo("#subtitle", { opacity: 0 }, { opacity: 0.85, duration: 1.4 }, 1.0);
+
+    window.__timelines = window.__timelines || {};
+    window.__timelines.tabasco = tl;
+  </script>
+</div>
