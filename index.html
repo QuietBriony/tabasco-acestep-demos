@@ -5,14 +5,22 @@
 <style>
   body{font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;background:#111;color:#eee;max-width:640px;margin:24px auto;padding:0 14px}
   h1{font-size:19px;margin:0 0 4px}
+  h2{font-size:14px;color:#8fd0d8;letter-spacing:.1em;text-transform:uppercase;margin:26px 0 8px;border-bottom:1px solid #233;padding-bottom:4px}
   small{color:#8a8a8a}
-  .track{margin:16px 0}
+  .track{margin:14px 0}
   .track b{display:block;margin-bottom:5px}
-  audio{width:100%}
+  audio,video{width:100%;display:block}
   a{color:#7db0f0}
 </style>
 <h1>Tabasco — ACE-Step demos</h1>
 <small>AI 生成の参考デモ（歌詞 + スタイルから作曲・本物の演奏ではない）。Band Room 翻訳用の使い捨て。</small>
+
+<h2>🎬 Visualizer (HyperFrames)</h2>
+<div class="track"><b>Human Fly — beat-synced (117 BPM, 30s)</b>
+  <video controls preload="none" src="viz/human-fly-30s.mp4"></video>
+</div>
+
+<h2>🎵 Audio (7 tracks)</h2>
 <div class="track"><b>01 TABASCO</b><audio controls preload="none" src="01-tabasco.mp3"></audio></div>
 <div class="track"><b>02 Hey</b><audio controls preload="none" src="02-hey.mp3"></audio></div>
 <div class="track"><b>03 I got a feeling</b><audio controls preload="none" src="03-i-got-a-feeling.mp3"></audio></div>
@@ -20,4 +28,5 @@
 <div class="track"><b>05 Electric Sheep</b><audio controls preload="none" src="05-electric-sheep.mp3"></audio></div>
 <div class="track"><b>06 Human Fly</b><audio controls preload="none" src="06-human-fly.mp3"></audio></div>
 <div class="track"><b>07 Sister</b><audio controls preload="none" src="07-sister.mp3"></audio></div>
+
 <p><small>出所: <a href="https://github.com/QuietBriony/Music">QuietBriony/Music</a> · docs/ACE-STEP-WORKFLOW.md / BL-029</small></p>
