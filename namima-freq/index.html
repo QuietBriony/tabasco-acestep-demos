@@ -15,13 +15,20 @@
   .note{background:#101922;border:1px solid #1e2a33;border-radius:8px;padding:10px 12px;margin:14px 0;font-size:13px;color:#b8c6cc}
 </style>
 <h1>namima — frequency ambient (candidate)</h1>
-<small>128Hz / ソルフェジオ / binaural のドローンを、オフラインの numpy レンダラーで生成した参考デモ。30秒プレビュー・48kHz/24bit。</small>
+<small>同じオフライン numpy シンセで作った参考デモ。上=メロディのスケッチ、下=周波数ドローン。すべて自己合成・48kHz。</small>
 
 <div class="note">
   ⚠ これは <b>candidate</b>(実験)の出力です。namima 本体アプリ(ビジュアル・アンビエント)とは別物で、
-  Tone.js の実行時合成ではなく <b>オフライン生成した WAV</b>。生成物は製品 repo には入れていません。<br>
-  🎧 ⑤の binaural はヘッドホン推奨(左右の 4Hz 差でうなりが出ます)。
+  Tone.js の実行時合成ではなく <b>オフライン生成</b>。サンプルは一切使わず全部シンセ、生成物は製品 repo には入れていません。
 </div>
+
+<h2>🎹 Melodic sketch — Alberto Balsalm style (new)</h2>
+<div class="note" style="margin-top:0">
+  Aphex Twin「Alberto Balsalm」の質感を狙った ~3分のスケッチ。ドローン用に作ったシンセを拡張し、
+  <b>ポルタメントで音程が滑る/ゆれるリード</b>(あの独特のベンド)+ F#マイナーの温かいパッド + 丸いベース +
+  合成ブレイクビート。全部この numpy レンダラーで自己合成、MP3 224kbps。
+</div>
+<div class="track"><b>🎼 “Alberto-ish” <span>— ~3:00 / メロディ + ブレイク / 自己合成</span></b><audio controls preload="none" src="alberto-balsalm-style.mp3"></audio></div>
 
 <h2>🎵 Drones (30s each)</h2>
 <div class="track"><b>① 128 Hz <span>— C3 相当(A=432)・基音ドローン</span></b><audio controls preload="none" src="01-128hz-c3.wav"></audio></div>
