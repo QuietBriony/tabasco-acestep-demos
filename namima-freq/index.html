@@ -1,0 +1,33 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>namima — frequency ambient (candidate)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body{font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;background:#0a0f14;color:#e6eef2;max-width:640px;margin:24px auto;padding:0 14px}
+  h1{font-size:19px;margin:0 0 4px}
+  h2{font-size:13px;color:#8fd0d8;letter-spacing:.12em;text-transform:uppercase;margin:24px 0 8px;border-bottom:1px solid #1e2a33;padding-bottom:4px}
+  small{color:#8a9aa2}
+  .track{margin:14px 0}
+  .track b{display:block;margin-bottom:5px}
+  .track span{color:#7fb0b8;font-size:12px}
+  audio{width:100%;display:block;margin-top:4px}
+  a{color:#7db0f0}
+  .note{background:#101922;border:1px solid #1e2a33;border-radius:8px;padding:10px 12px;margin:14px 0;font-size:13px;color:#b8c6cc}
+</style>
+<h1>namima — frequency ambient (candidate)</h1>
+<small>128Hz / ソルフェジオ / binaural のドローンを、オフラインの numpy レンダラーで生成した参考デモ。30秒プレビュー・48kHz/24bit。</small>
+
+<div class="note">
+  ⚠ これは <b>candidate</b>(実験)の出力です。namima 本体アプリ(ビジュアル・アンビエント)とは別物で、
+  Tone.js の実行時合成ではなく <b>オフライン生成した WAV</b>。生成物は製品 repo には入れていません。<br>
+  🎧 ⑤の binaural はヘッドホン推奨(左右の 4Hz 差でうなりが出ます)。
+</div>
+
+<h2>🎵 Drones (30s each)</h2>
+<div class="track"><b>① 128 Hz <span>— C3 相当(A=432)・基音ドローン</span></b><audio controls preload="none" src="01-128hz-c3.wav"></audio></div>
+<div class="track"><b>② Solfeggio 396 Hz <span>— 低め</span></b><audio controls preload="none" src="02-solfeggio-396.wav"></audio></div>
+<div class="track"><b>③ Solfeggio 528 Hz <span>— いわゆる 528</span></b><audio controls preload="none" src="03-solfeggio-528.wav"></audio></div>
+<div class="track"><b>④ Solfeggio 963 Hz <span>— 高め</span></b><audio controls preload="none" src="04-solfeggio-963.wav"></audio></div>
+<div class="track"><b>⑤ 528 Hz + binaural 4Hz <span>— 🎧 ヘッドホン</span></b><audio controls preload="none" src="05-binaural-528+4hz.wav"></audio></div>
+
+<p><small>出所: <a href="https://github.com/QuietBriony/namima">QuietBriony/namima</a> の <code>SKILL.md</code> / <code>src/namima/generator.py</code>(candidate)。パラメータで長さ・周波数・オクターブ・デチューン・LFO・binaural を量産可。</small></p>
