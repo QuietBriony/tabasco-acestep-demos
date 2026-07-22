@@ -22,22 +22,21 @@
   Tone.js の実行時合成ではなく <b>オフライン生成</b>。サンプルは一切使わず全部シンセ、生成物は製品 repo には入れていません。
 </div>
 
-<h2>🌊 Solfeggio drift — ambient (new)</h2>
+<h2>🌊 Solfeggio drift — ambient (v2・品質パス)</h2>
 <div class="note" style="margin-top:0">
   深いビート + <b>たゆたうメロディ</b>の ~3分アンビエント(Alberto Balsalm の気分で)。
   肝は音程:メロディも声も <b>ソルフェジオ周波数そのもの</b>(174/285/396/417/528/639/741/852Hz)を
-  音階に使い、<b>ドレミ(12平均律)の外</b>で鳴らしています(396↔417 の 89セント微分音など)。
+  音階に使い、<b>ドレミ(12平均律)の外</b>で鳴らす(396↔417 の 89セント微分音など)。
   音程が滑るリードは廃止 → 柔らかい音が重なってクロスフェードする漂うライン。
-  ベッドは温かいデチューン・パッド + 深いサブ、上に <b>フォルマント合成のハミング</b>(ノラ的な温度)。
-  全部この numpy シンセで自己合成、MP3 224kbps・🎧 推奨。
+  <b>888Hzベル</b>と<b>8888Hzのキラキラ(小音量)</b>も織り込み済み。
+  <br><b>v2 の品質パス</b>(4視点レビュー→敵対検証で磨いた版):
+  ①iPhoneスピーカーで鳴る<b>キックの実体(中低域)</b>を追加、
+  ②<b>モノ互換</b>(前版は9msのステレオでモノ合成時に中域が櫛状に欠けていた→L+R=2×midになる方式へ)、
+  ③ベル/キラキラの<b>クリック除去</b>、④メロディの<b>音域の偏り解消</b>、
+  ⑤パッドの<b>明るさ推移</b>+サイドチェイン、⑥声を<b>より温かく</b>。
+  自己合成・MP3 224kbps・🎧 or スピーカー。コードは namima repo に候補として統合済み。
 </div>
-<div class="track"><b>🌊 “Solfeggio drift” <span>— ~3:04 / 深いビート + 漂うメロディ / 非ドレミ / 自己合成</span></b><audio controls preload="none" src="solfeggio-drift.mp3"></audio></div>
-<div class="track"><b>🔔 “Solfeggio drift + 888/8888” <span>— 同じ曲に 888Hzのベル(チャイム)と 8888Hzのキラキラを重ねた版</span></b><audio controls preload="none" src="solfeggio-drift-888.mp3"></audio></div>
-<div class="note" style="margin-top:0">
-  同じ曲に <b>888Hz</b>(A5の少し上)を<b>非整数倍音のベル/チャイム</b>としてフレーズ頭に、
-  <b>8888Hz</b> を<b>まばらな小音量のキラキラ(空気)</b>として散らしました。
-  8888Hz は持続させると刺さるので、柔らかい減衰の粒として控えめに(実測でも中域の約1/20の音量)。
-</div>
+<div class="track"><b>🌊 “Solfeggio drift” v2 <span>— ~3:04 / 深いビート + 漂うメロ + 888/8888 / 非ドレミ / 自己合成</span></b><audio controls preload="none" src="solfeggio-drift.mp3"></audio></div>
 
 <h2>🎵 Drones (30s each)</h2>
 <div class="track"><b>⓪a 888 Hz <span>— 高いドローン(A5 の少し上)・デチューン+ゆらぎ</span></b><audio controls preload="none" src="888-drone.mp3"></audio></div>
