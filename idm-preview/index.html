@@ -1,0 +1,32 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>namima - IDM ambient prototype (90s judgement clips)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+ body{font:15px/1.5 system-ui,sans-serif;background:#0a0f14;color:#e6eef2;max-width:640px;margin:24px auto;padding:0 14px}
+ h1{font-size:20px;margin:0 0 4px} h2{font-size:13px;color:#8fd0d8;letter-spacing:.12em;text-transform:uppercase;margin:22px 0 8px;border-bottom:1px solid #1e2a33;padding-bottom:4px}
+ small{color:#8a9aa2}.t{margin:10px 0}.t b{display:block;font-size:13px;margin-bottom:3px}
+ audio{width:100%;display:block}.note{background:#101922;border:1px solid #1e2a33;border-radius:8px;padding:10px 12px;margin:12px 0;font-size:13px;color:#b8c6cc}
+ .q{color:#e6c07b}
+</style>
+<h1>namima &mdash; IDM ambient prototype</h1>
+<small>アンビエント側から入るIDMの判定クリップ（各90秒・同じ種・同じ旋律）。全部 numpy/scipy 自己合成・決定論・ソルフェジオ絶対Hz音律（非ドレミ）。🎧推奨、iPhoneモノでも可。</small>
+<div class="note">
+3本は<b>同じ旋律・同じパッド</b>で、ビートの有無と種類だけが違います。聴いてほしいのは
+<span class="q">①旋律が「サイレン」でなく「跳ねるフレーズ」に聞こえるか</span>
+<span class="q">②非ドレミの「ずれ」が気持ちいいか気持ち悪いか</span>
+<span class="q">③3本のどの方向で長尺を焼くか</span>。
+リードはピッチ固定（ポルタメント無し）、ビブラートは遅れて薄く入るだけです。
+</div>
+
+<h2>A &mdash; beatless（パッド＋旋律＋サブ＋レコードノイズ）</h2>
+<div class="t"><b>SAW 85-92 側。ビート無し。</b><audio controls preload="none" src="idm-proto-beatless-90s.mp3"></audio></div>
+
+<h2>B &mdash; soft（＋丸いキック / リム / スウィングしたハット）</h2>
+<div class="t"><b>Xtal 側。12小節目からビート、24-28小節でブレイクダウン。</b><audio controls preload="none" src="idm-proto-soft-90s.mp3"></audio></div>
+
+<h2>C &mdash; idm（＋切り刻んだ2小節ブレイク）</h2>
+<div class="t"><b>Drukqs 側の入口。スタッター / 逆再生 / ラチェットは控えめ、8小節ごとにフィル。</b><audio controls preload="none" src="idm-proto-idm-90s.mp3"></audio></div>
+
+<div class="note">構造（36小節・96 BPM）: 0-8 パッドのみ → 8 旋律イン → 12 ビートイン → 24-28 ブレイクダウン（旋律はアンカー音だけ）→ 28-36 全部戻る → フェード。
+長尺版は判定後に同じ種から焼きます（Surface CPU・数十秒）。</div>
